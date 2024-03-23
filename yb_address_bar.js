@@ -187,6 +187,8 @@
                 return {type: 'file', domain: 'file', clickable: false};
             } else if (url.startsWith('about:')) {
                 return {type: 'about', domain: url, clickable: true};
+            } else if (url.startsWith('chrome-extension://')) {
+                return {type: 'extension', domain: 'extension', clickable: false};
             } else {
                 return {type: 'url', domain: url, clickable: true};
             }
