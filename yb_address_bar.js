@@ -25,6 +25,7 @@
             line-height: 0;
             display: flex;
             align-items: center;
+            transition: background-color 0.5s, border-color 0.5s;
         }
 
         .YBDomainButton:hover {
@@ -246,9 +247,10 @@
         }
     };
 
-    function initMod() {
-        window.ybAddressBar = new YBAddressBar();
-    }
-
-    setTimeout(initMod, 500);
+    var interval = setInterval(() => {
+        if (document.querySelector('#browser')) {
+            window.ybAddressBar = new YBAddressBar();
+            clearInterval(interval);
+        }
+    }, 100);
 })();
